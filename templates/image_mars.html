@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Отбор астронавтов</title>
+
+    <link rel="stylesheet" type="text/css" href={{CSSFILE}}>
+    <style type="text/css">
+    	textarea {
+    		resize: none;
+    	}
+    </style>
+</head>
+<body>
+    <form class="uniform_selection_of_astronauts"><br>
+    	<input type="text" name="name" placeholder="введите имя"><br>
+    	<input type="text" name="surname" placeholder="введите фамилию"><br>
+    	<br>
+    	<input type="email" name="email" placeholder="введите адрес почты"><br><br>
+    	<p>Какое у вас образование?</p>
+    	<select>
+    		<option value="1">Начальное</option>
+    		<option value="2">Среднее</option>
+    		<option va;ue="3">Высшее</option>
+    	</select>
+    	<div>
+    		<p>Какие у вас есть профессии?</p>
+    		<div class="div_info">
+		    	<input type="checkbox" name="research engineer">инженер исследователь<br>
+		    	<input type="checkbox" name="doctor">врач<br>
+		    	<input type="checkbox" name="pilot">пилот<br>
+		    	<input type="checkbox" name="povar">повар<br>
+		    	<input type="checkbox" name="meteorolog">метеоролог<br>
+	    	</div>
+    	</div>
+    	<br><br>
+    	<div>
+    		<p>Укажите пол</p>
+	    	<div class="div_info">
+	    		<input type="radio" name="gender">Мужской<br>
+	    		<input type="radio" name="gender">Женский<br>
+	    	</div>
+    	</div>
+
+    	<div>
+    		<br>
+    		<p>Почему вы хотите принять участие в миссии?</p><br>
+    		<textarea rows=5 cols=25></textarea>
+    	</div>
+    	<div>
+    		<p>Приложите фотографию</p>
+    		<input type="file" name="photo">
+    	</div>
+    	<br>
+    	<div>
+    		<input type="radio" name="readiness">Готовы остаться на Марсе?
+    	</div>
+    	<br><br>
+    	<input type="submit">
+    </form>
+</body>
+</html>
