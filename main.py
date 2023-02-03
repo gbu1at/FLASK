@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, render_template
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ def title():
 
 @app.route("/index")
 def motto():
-    return "И на Марсе будут яблоaни цвести!"
+    return "И на Марсе будут яблони цвести!"
 
 
 @app.route("/promotion")
@@ -22,6 +22,7 @@ def advertising_campaign():
              "Присоединяйся!",
              ]
     return "<br><br>".join(names)
+
 
 @app.route("/image_mars")
 def image_mars():
@@ -38,6 +39,16 @@ def image_mars():
                 </html>
             '''
     return source
+
+
+@app.route("/promotion_image")
+def promotion_image():
+    return ...
+
+
+@app.route("/astronaut_selection", method=['POST', 'GET'])
+def astronaut_selection():
+    return render_template("image_mars.html", CSSFILE="static/CSS/index.css")
 
 
 if __name__ == '__main__':
