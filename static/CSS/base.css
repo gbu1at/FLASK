@@ -1,7 +1,5 @@
 .navigation {
 	height: 100px;
-/*	width: 1300px;*/
-/*	margin: auto;*/
 	border: 1px solid black;
 	background: Gainsboro;
 }
@@ -15,5 +13,5 @@ a:hover {
 
 div .nav_link {
 	font-size: 40px;
-	margin-Left: 200px;
+	padding-left: 132px;
 }

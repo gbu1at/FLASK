@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    <title>Профессии</title>
+{% endblock %}
+
+{% block body %}
+    <h2 style="padding-left: 50px; padding-top: 50px;">Список профессий</h2>
+
+    <{{tag}} style="padding-left: 100px;">
+        {% for prof in professions %}
+            <li style="font-size: 20px;">{{prof}}</li>
+        {% endfor %}
+    </{{tag}}>
+{% endblock %}

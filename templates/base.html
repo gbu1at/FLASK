@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Заготовка</title>
-    <link rel="stylesheet" type="text/css" href="static/CSS/base.css">
+    {% block title %}
+
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="/static/CSS/base.css">
     {% block head %}
 
     {% endblock %}
@@ -19,6 +21,7 @@
         <a href="/advertising_campaign" class="nav_link">Рекламная кампания</a>
         <a href="/image_mars" class="nav_link"> Изображение марса</a>
         <a href="/astronaut_selection" class="nav_link"> Форма для астронавтов</a>
+        <a href="/list_prof/ul" class="nav_link"> Профессиии</a>
     </div>
 
     {% block body %}
