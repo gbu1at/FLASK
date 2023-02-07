@@ -1,0 +1,10 @@
+.answer_form_div p {
+    margin-left: 20px;
+    font-size: 30px;
+}
+.answer_form_div {
+    width: 570px;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-top: 45px;
+}

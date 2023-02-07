@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>ваш ответ</title>
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href={{CSSFILE}}>
+{% endblock %}
+{% block body %}
+    <div class="answer_form_div">
+        <p>Фамилия:   {{surname}}</p>
+        <p>Имя:   {{name}}</p>
+        <p>email:   {{email}}</p>
+        <p>Образование:   {{education}}</p>
+        <p>Профессия:   {{profession}}</p>
+        <p>Пол:   {{sex}}</p>
+        <p>Мотивация:   {{motivation}}</p>
+        <p>Готовность отсаться на марсе:   {{readiness}}</p>
+    </div>
+{% endblock %}
