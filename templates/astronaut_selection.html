@@ -1,6 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
+{% extends "base.html" %}
+
+{% block head %}
     <title>Отбор астронавтов</title>
 
     <link rel="stylesheet" type="text/css" href={{CSSFILE}}>
@@ -9,8 +9,8 @@
     		resize: none;
     	}
     </style>
-</head>
-<body>
+{% endblock %}
+{% block body %}
     <form class="uniform_selection_of_astronauts"><br>
     	<input type="text" name="name" placeholder="введите имя"><br>
     	<input type="text" name="surname" placeholder="введите фамилию"><br>
@@ -57,5 +57,4 @@
     	<br><br>
     	<input type="submit">
     </form>
-</body>
-</html>
+{% endblock %}

@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def title():
-    return "Миссия Колонизация Марса"
+def root():
+    return render_template("root.html", CSSFILE="static/CSS/base.css")
 
 
 @app.route("/index")
@@ -13,7 +13,7 @@ def motto():
     return "И на Марсе будут яблони цвести!"
 
 
-@app.route("/promotion")
+@app.route("/advertising_campaign")
 def advertising_campaign():
     names = ["Человечество вырастает из детства.",
              "Человечеству мала одна планета.",
@@ -21,24 +21,12 @@ def advertising_campaign():
              "И начнем с Марса!",
              "Присоединяйся!",
              ]
-    return "<br><br>".join(names)
+    return render_template("advertising_campaign.html", names=names)
 
 
 @app.route("/image_mars")
 def image_mars():
-    source = f'''<!doctype html>
-                <html lang="en">
-                <head>
-                    <title>Привет, Марс!</title>
-                </head>
-                <body>
-                    <h1>Жди нас, Марс!</h1><br>
-                    <img src="{url_for("static", filename="IMAGES/Mars.jpg")}" alt="изображение марса" width=600>
-                    <h4>Вот она какая, красная планета</h4>
-                </body>
-                </html>
-            '''
-    return source
+    return render_template("image_mars.html", FILE_IMAGE="Mars.jpg")
 
 
 @app.route("/promotion_image")
@@ -48,7 +36,7 @@ def promotion_image():
 
 @app.route("/astronaut_selection")
 def astronaut_selection():
-    return render_template("image_mars.html", CSSFILE="static/CSS/index.css")
+    return render_template("astronaut_selection.html", CSSFILE="static/CSS/astronaut_selection.css")
 
 
 if __name__ == '__main__':
