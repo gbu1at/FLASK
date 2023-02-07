@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+{%endblock %}
+
+{% block body %}
+    <div style="text-align: center;">
+        {% for advertising in names %}
+            <h2>{{advertising}}</h2><br>
+        {% endfor %}
+    </div>
+{% endblock %}

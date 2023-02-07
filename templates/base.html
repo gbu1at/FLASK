@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заготовка</title>
+    <link rel="stylesheet" type="text/css" href="static/CSS/base.css">
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Миссия Колонизация Марса</h1><br>
+        <h4>И на Марсе будут яблони цвести!</h4><br>
+    </div>
+
+    <div class="navigation">
+        <a href="/" class="nav_link">Главная страница</a>
+        <a href="/advertising_campaign" class="nav_link">Рекламная кампания</a>
+        <a href="/image_mars" class="nav_link"> Изображение марса</a>
+        <a href="/astronaut_selection" class="nav_link"> Форма для астронавтов</a>
+    </div>
+
+    {% block body %}
+
+    {% endblock %}
+</body>
+</html>
