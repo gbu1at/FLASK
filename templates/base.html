@@ -10,22 +10,22 @@
 
     {% endblock %}
 </head>
-<body>
-    <div style="text-align: center;">
-        <h1>Миссия Колонизация Марса</h1><br>
-        <h4>И на Марсе будут яблони цвести!</h4><br>
-    </div>
+<body style='background: url("/static/IMAGES/root_mars_image.jpg"); background-size: cover;'>
+<div style="text-align: center;">
+    <h1>Миссия Колонизация Марса</h1><br>
+    <h4>И на Марсе будут яблони цвести!</h4><br>
+</div>
 
-    <div class="navigation">
-        <a href="/" class="nav_link">Главная страница</a>
-        <a href="/advertising_campaign" class="nav_link">Рекламная кампания</a>
-        <a href="/image_mars" class="nav_link"> Изображение марса</a>
-        <a href="/astronaut_selection" class="nav_link"> Форма для астронавтов</a>
-        <a href="/list_prof/ul" class="nav_link"> Профессиии</a>
-    </div>
+<div class="navigation">
+    <a href="/" class="nav_link">Главная страница</a>
+    <a href="/advertising_campaign" class="nav_link">Рекламная кампания</a>
+    <a href="/image_mars" class="nav_link"> Изображение марса</a>
+    <a href="/astronaut_selection" class="nav_link"> Форма для астронавтов</a>
+    <a href="/list_prof/ul" class="nav_link"> Профессиии</a>
+</div>
 
-    {% block body %}
+{% block body %}
 
-    {% endblock %}
+{% endblock %}
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, url_for, render_template
+from flask import Flask, url_for, render_template, request, redirect
 from DATA import list_professions
 
 app = Flask(__name__)
@@ -35,14 +35,35 @@ def promotion_image():
     return ...
 
 
-@app.route("/astronaut_selection/")
+@app.route("/astronaut_selection/", methods=["GET", 'POST'])
 def astronaut_selection():
+    if request.method == 'POST':
+        name = request.form['name']
+        surname = request.form['surname']
+        email = request.form['email']
+        education = request.form['education']
+        profession = request.form['profession']
+        sex = request.form['gender']
+        motivation = request.form['motivation']
+        readiness = request.form['readiness']
+        return answer_form(name=name, surname=surname, email=email, education=education, profession=profession, sex=sex,
+                           motivation=motivation, readiness=readiness)
     return render_template("astronaut_selection.html", CSSFILE="/static/CSS/astronaut_selection.css")
 
 
 @app.route('/list_prof/<string:tag>/')
 def list_prof(tag):
     return render_template("list_prof.html", professions=list_professions, tag=tag)
+
+
+def answer_form(name, surname, email, education, profession, sex, motivation, readiness):
+    if readiness == "on":
+        readiness = "true"
+    else:
+        readiness = "false"
+    return render_template("auto_answer.html", name=name, surname=surname, email=email, education=education,
+                           profession=profession, sex=sex, motivation=motivation, readiness=readiness,
+                           CSSFILE='/static/CSS/auto_answer.css')
 
 
 if __name__ == '__main__':
