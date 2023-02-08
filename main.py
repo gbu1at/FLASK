@@ -1,8 +1,11 @@
 from flask import Flask, url_for, render_template, request, redirect
 from DATA import list_professions
+import os
 
 app = Flask(__name__)
 
+PATH_GALERY_IMAGE = "/home/bulat/PycharmProjects/FLASK/static/IMAGES/GALERY"
+content = os.listdir(PATH_GALERY_IMAGE)
 
 @app.route("/")
 def root():
@@ -49,6 +52,27 @@ def astronaut_selection():
         return answer_form(name=name, surname=surname, email=email, education=education, profession=profession, sex=sex,
                            motivation=motivation, readiness=readiness)
     return render_template("astronaut_selection.html", CSSFILE="/static/CSS/astronaut_selection.css")
+
+
+@app.route("/galery/", methods=["POST", "GET"])
+def galery():
+    global content
+    if request.method == "POST":
+        file = request.files["photo"]
+        if file.filename != "":
+            file.save(os.path.join(PATH_GALERY_IMAGE, file.filename))
+            content = os.listdir(PATH_GALERY_IMAGE)
+    FILE_IMAGE = content[0]
+    return redirect(f"/galery/{FILE_IMAGE}")
+
+
+@app.route("/galery/<FILE_IMAGE>")
+def galery_image(FILE_IMAGE):
+    i = content.index(FILE_IMAGE)
+    LEFT_LINK = content[i - 1]
+    RIGHT_LINK = content[(i + 1) % len(content)]
+    return render_template("galery.html", FILE_IMAGE=FILE_IMAGE, LEFT_LINK=LEFT_LINK, RIGHT_LINK=RIGHT_LINK,
+                           CSSFILE='galery.css')
 
 
 @app.route('/list_prof/<string:tag>/')

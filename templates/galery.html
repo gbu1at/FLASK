@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title> Галлерея </title>
+{% endblock %}
+
+
+{% block head %}
+      <link rel="stylesheet" type="text/css" href="/static/CSS/{{CSSFILE}}">
+{% endblock %}
+
+{% block body %}
+    <div class="galery_div_img">
+      <img src="/static/IMAGES/{{FILE_IMAGE}}" alt="изображение марса" height=400>
+    </div>
+    <a class="link left" href="{{LEFT_LINK}}" style="font-size: 30px"> &#10232; </a>
+    <a class="link right" href="{{RIGHT_LINK}}" style="font-size: 30px"> &#10233; </a>
+
+    <form class="galery_form" action="/galery/" method="POST" enctype=multipart/form-data>
+        <div>
+    		<p style="color: black;">Загрузить фотографию</p>
+    		<input type="file" name="photo">
+    	</div>
+    	<br>
+    	<input type="submit" value="Upload">
+    </form>
+
+{% endblock %}
