@@ -1,60 +1,62 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <title>Отбор астронавтов</title>
+<title>Отбор астронавтов</title>
 
-    <link rel="stylesheet" type="text/css" href={{CSSFILE}}>
-    <style type="text/css">
+<link rel="stylesheet" type="text/css" href={{CSSFILE}}>
+<style type="text/css">
     	textarea {
     		resize: none;
     	}
-    </style>
+
+</style>
 {% endblock %}
 {% block body %}
-    <form class="uniform_selection_of_astronauts" action="/astronaut_selection/" method="POST"><br>
-    	<input type="text" name="name" placeholder="введите имя" required><br>
-    	<input type="text" name="surname" placeholder="введите фамилию" required><br>
-    	<br>
-    	<input type="email" name="email" placeholder="введите адрес почты" required><br><br>
-    	<p>Какое у вас образование?</p>
-    	<select name="education" required>
-    		<option value=Начальное>Начальное</option>
-    		<option value=Среднее>Среднее</option>
-    		<option value=Высшее>Высшее</option>
-    	</select>
-    	<div>
-    		<p>Какая у вас профессия?</p>
-    		<div class="div_info">
-		    	<input type="radio" value="research engineer" name="profession" required>инженер исследователь<br>
-		    	<input type="radio" value="doctor" name="profession" required>врач<br>
-		    	<input type="radio" value="pilot" name="profession" required>пилот<br>
-		    	<input type="radio" value="povar" name="profession" required>повар<br>
-		    	<input type="radio" value="meteorolog" name="profession" required>метеоролог<br>
-	    	</div>
-    	</div>
-    	<br><br>
-    	<div>
-    		<p>Укажите пол</p>
-	    	<div class="div_info">
-	    		<input type="radio" name="gender" value="male" required>Мужской<br>
-	    		<input type="radio" name="gender" value="female" required>Женский<br>
-	    	</div>
-    	</div>
+<form class="uniform_selection_of_astronauts" action="/astronaut_selection/" method="POST" enctype=multipart/form-data>
+    <br>
+    <input type="text" name="name" placeholder="введите имя" required><br>
+    <input type="text" name="surname" placeholder="введите фамилию" required><br>
+    <br>
+    <input type="email" name="email" placeholder="введите адрес почты" required><br><br>
+    <p>Какое у вас образование?</p>
+    <select name="education" required>
+        <option value=Начальное>Начальное</option>
+        <option value=Среднее>Среднее</option>
+        <option value=Высшее>Высшее</option>
+    </select>
+    <div>
+        <p>Какая у вас профессия?</p>
+        <div class="div_info">
+            <input type="radio" value="research engineer" name="profession" required>инженер исследователь<br>
+            <input type="radio" value="doctor" name="profession" required>врач<br>
+            <input type="radio" value="pilot" name="profession" required>пилот<br>
+            <input type="radio" value="povar" name="profession" required>повар<br>
+            <input type="radio" value="meteorolog" name="profession" required>метеоролог<br>
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <p>Укажите пол</p>
+        <div class="div_info">
+            <input type="radio" name="gender" value="male" required>Мужской<br>
+            <input type="radio" name="gender" value="female" required>Женский<br>
+        </div>
+    </div>
 
-    	<div>
-    		<br>
-    		<p>Почему вы хотите принять участие в миссии?</p><br>
-    		<textarea rows=5 cols=25 name="motivation" required></textarea>
-    	</div>
-    	<div>
-    		<p>Приложите фотографию</p>
-    		<input type="file" name="photo">
-    	</div>
-    	<br>
-    	<div>
-    		<input type="radio" name="readiness" required>Готовы остаться на Марсе?
-    	</div>
-    	<br><br>
-    	<input type="submit">
-    </form>
+    <div>
+        <br>
+        <p>Почему вы хотите принять участие в миссии?</p><br>
+        <textarea rows=5 cols=25 name="motivation" required></textarea>
+    </div>
+    <div>
+        <p>Приложите фотографию</p>
+        <input type="file" name="photo">
+    </div>
+    <br>
+    <div>
+        <input type="radio" name="readiness" required>Готовы остаться на Марсе?
+    </div>
+    <br><br>
+    <input type="submit">
+</form>
 {% endblock %}

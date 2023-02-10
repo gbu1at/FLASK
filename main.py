@@ -1,11 +1,15 @@
 from flask import Flask, url_for, render_template, request, redirect
 from DATA import list_professions
+import json
 import os
+import random
 
 app = Flask(__name__)
 
 PATH_GALERY_IMAGE = "/home/bulat/PycharmProjects/FLASK/static/IMAGES/GALERY"
+PATH_PHOTO_ASTRONAUT = "/home/bulat/PycharmProjects/FLASK/static/IMAGES/ASTRONAUT_PHOTO"
 content = os.listdir(PATH_GALERY_IMAGE)
+
 
 @app.route("/")
 def root():
@@ -49,9 +53,33 @@ def astronaut_selection():
         sex = request.form['gender']
         motivation = request.form['motivation']
         readiness = request.form['readiness']
+        path = save_photo_astronaut(name, surname)
+        key = f"{name}&{surname}"
+        data = {
+            "email": email,
+            "education": education,
+            "profession": profession,
+            "sex": sex,
+            "path_image": path
+        }
+        with open("JSON/data.json", 'r') as file:
+            x = json.load(file)
+        x["data"][key] = data
+        with open("JSON/data.json", 'w') as file:
+            json.dump(x, file)
+
         return answer_form(name=name, surname=surname, email=email, education=education, profession=profession, sex=sex,
                            motivation=motivation, readiness=readiness)
     return render_template("astronaut_selection.html", CSSFILE="/static/CSS/astronaut_selection.css")
+
+
+def save_photo_astronaut(name, surname):
+    file = request.files["photo"]
+    extension = '.' + file.filename.split('.')[1]
+    filename = f'{name}&{surname}' + extension
+    if file.filename != "":
+        file.save(os.path.join(PATH_PHOTO_ASTRONAUT, filename))
+    return filename
 
 
 @app.route("/galery/", methods=["POST", "GET"])
@@ -89,6 +117,24 @@ def answer_form(name, surname, email, education, profession, sex, motivation, re
                            profession=profession, sex=sex, motivation=motivation, readiness=readiness,
                            CSSFILE='/static/CSS/auto_answer.css')
 
+
+@app.route("/member/")
+def member():
+    DATA = {}
+    rand_key = get_random_member()
+    name, surname = rand_key.split("&")
+    with open("JSON/data.json", 'r') as file:
+        data = json.load(file)
+        DATA = data['data'][rand_key]
+        DATA['name'] = name
+        DATA["surname"] = surname
+    return render_template("astronaut_card.html", CSSFILE="/static/CSS/astronaut_card.css", DATA=DATA)
+
+
+def get_random_member():
+    with open('JSON/data.json', 'r') as file:
+        data = json.load(file)
+        return random.choice(list(data['data']))
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')

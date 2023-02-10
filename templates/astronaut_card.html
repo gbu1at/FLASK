@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href={{CSSFILE}}>
+{% endblock %}
+
+
+{% block body %}
+    <div style="text-align: center;">
+        <h1>{{DATA["name"]}} {{DATA["surname"]}}</h1><br><br>
+        <img src="/static/IMAGES/ASTRONAUT_PHOTO/{{DATA['path_image']}}" width=300 style="border-radius: 20px"><br><br>
+        <p style="font-size: 30px">{{DATA["profession"]}}</p>
+    </div>
+{% endblock %}

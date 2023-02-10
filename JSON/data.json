@@ -1,0 +1,18 @@
+{
+  "data": {
+    "Bulat&Gabitov": {
+      "email": "bulatchess@mail.ru",
+      "education": "\u0421\u0440\u0435\u0434\u043d\u0435\u0435",
+      "profession": "pilot",
+      "sex": "male",
+      "path_image": "Bulat&Gabitov.jpg"
+    },
+    "Gleb&Maslov": {
+      "email": "gleb@bk.ru",
+      "education": "\u0421\u0440\u0435\u0434\u043d\u0435\u0435",
+      "profession": "research engineer",
+      "sex": "male",
+      "path_image": "Gleb&Maslov.jpg"
+    }
+  }
+}
