@@ -5,7 +5,6 @@ import os
 import random
 
 app = Flask(__name__)
-
 PATH_GALERY_IMAGE = "./static/IMAGES/GALERY"
 PATH_PHOTO_ASTRONAUT = "./static/IMAGES/ASTRONAUT_PHOTO"
 content = os.listdir(PATH_GALERY_IMAGE)
