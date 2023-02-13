@@ -6,8 +6,8 @@ import random
 
 app = Flask(__name__)
 
-PATH_GALERY_IMAGE = "/home/bulat/PycharmProjects/FLASK/static/IMAGES/GALERY"
-PATH_PHOTO_ASTRONAUT = "/home/bulat/PycharmProjects/FLASK/static/IMAGES/ASTRONAUT_PHOTO"
+PATH_GALERY_IMAGE = "./static/IMAGES/GALERY"
+PATH_PHOTO_ASTRONAUT = "./static/IMAGES/ASTRONAUT_PHOTO"
 content = os.listdir(PATH_GALERY_IMAGE)
 
 
